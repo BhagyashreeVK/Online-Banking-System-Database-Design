@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.6.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: kulkarni_kulkarni_banking_db
+-- Host: localhost    Database:Bank 
 -- ------------------------------------------------------
 -- Server version	5.6.22-log
 
@@ -15,17 +15,10 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE kulkarni_kulkarni_banking_db;
-USE kulkarni_kulkarni_banking_db;
-
---
+CREATE DATABASE bank;
+USE bank;
 -- Table structure for table `account_customers`
---
-
-DROP TABLE IF EXISTS `account_customers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `account_customers` (
+CREATE TABLE `customer` (
   `Account_id` int(10) unsigned NOT NULL,
   `Customer_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`Customer_id`,`Account_id`),
@@ -34,12 +27,6 @@ CREATE TABLE `account_customers` (
   CONSTRAINT `fk_Accounts_has_Customer_Accounts1` FOREIGN KEY (`Account_id`) REFERENCES `accounts` (`Account_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_Accounts_has_Customer_Customer1` FOREIGN KEY (`Customer_id`) REFERENCES `customers` (`Customer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `account_customers`
---
-
 LOCK TABLES `account_customers` WRITE;
 /*!40000 ALTER TABLE `account_customers` DISABLE KEYS */;
 INSERT INTO `account_customers` VALUES (10299200,1),(10299200,2),(10299202,3),(10299203,4),(10299204,5),(10299205,6),(10299206,7),(10299207,8),(10299208,9),(10299209,10),(10299210,11),(10299210,12),(10299211,12),(10299210,13),(10299212,13),(10299213,14),(10299214,15),(10299215,16),(10299216,17),(10299217,18),(10299218,18),(10299219,20),(10299220,20),(10299221,22),(10299222,23),(10299223,24),(10299223,25),(10299224,25),(10299226,26),(10299227,26),(10299228,27),(10299229,27),(10299230,28),(10299231,29),(10299232,29),(10299233,30),(10299234,30),(10299235,31),(10299236,31),(10299237,32);
@@ -49,15 +36,11 @@ UNLOCK TABLES;
 --
 -- Table structure for table `account_type`
 --
-
-DROP TABLE IF EXISTS `account_type`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `account_type` (
   `Account_Type` varchar(20) NOT NULL,
   `Minimum_Balance_Restriction` decimal(10,2) NOT NULL,
   PRIMARY KEY (`Account_Type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+)
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
